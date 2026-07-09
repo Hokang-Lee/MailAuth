@@ -168,8 +168,6 @@ Write-Host ""
 
     DMARC = $DMARC
 
-    AuthenticationResultsSource = $HeaderSource
-
     AuthenticationResults = $Header
 
 } | Export-Csv `

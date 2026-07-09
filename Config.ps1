@@ -31,14 +31,29 @@ if (!$M365AuthGuiAccount)
 
 $TenantId        = $M365AuthGuiAccount.tenant_id
 $ClientId        = $M365AuthGuiAccount.client_id
-$SenderMailbox   = "epost_sales_tec@e-postinc.jp"
-$ReceiverMailbox = "user001@chat.e-postinc.jp"
+$SenderMailbox   = "user001@chat.e-postinc.jp"
+$ReceiverMailbox = "leehokang@gmail.com"
 $GraphSenderUser = "me"
 $GraphReceiverUser = "me"
 $GraphScopes     = "https://graph.microsoft.com/Mail.Send https://graph.microsoft.com/Mail.Read offline_access"
 $SendMethod      = "Smtp"
-$SmtpHost        = $M365AuthGuiAccount.smtp_host
+$SmtpHost        = "219.163.190.214"
 $SmtpPort        = [int]$M365AuthGuiAccount.smtp_port
+$SmtpMode        = "Raw"
+$SmtpAuthUser    = "user001"
+$SmtpAuthPassword = $null
+$SmtpVerbose     = $false
+
+$GmailSenderMailbox = "leehokang@gmail.com"
+$GmailReceiverMailbox = "leehokang@gmail.com"
+$GmailClientSecretFile = ".\gmail_client_secret.json"
+if (!(Test-Path -LiteralPath $GmailClientSecretFile) -and (Test-Path -LiteralPath ".\gmail_client_secret.json.json"))
+{
+    $GmailClientSecretFile = ".\gmail_client_secret.json.json"
+}
+$GmailTokenFile = ".\Result\gmail_token.json"
+$GmailScopes = "https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/gmail.readonly"
+$GmailRedirectPort = 8765
 
 $TestSubject      = "DMARC TEST"
 
@@ -47,3 +62,9 @@ $ResultFile       = ".\Result\DMARC_Test_Result.csv"
 $GraphTokenFile   = ".\Result\graph_token.json"
 
 $WaitSeconds      = 60
+
+$LocalConfigFile = ".\Config.local.ps1"
+if (Test-Path -LiteralPath $LocalConfigFile)
+{
+    . $LocalConfigFile
+}

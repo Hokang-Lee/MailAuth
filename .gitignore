@@ -1,3 +1,5 @@
 Result/
 last_subject.txt
 .agents/
+gmail_client_secret*.json
+Config.local.ps1
