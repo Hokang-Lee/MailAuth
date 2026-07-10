@@ -31,10 +31,12 @@ if (!$M365AuthGuiAccount)
 
 $TenantId        = $M365AuthGuiAccount.tenant_id
 $ClientId        = $M365AuthGuiAccount.client_id
+$M365SenderMailbox = "leehokang@e-postinc.jp"
+$M365ReceiverMailbox = "leehokang@e-postinc.jp"
 $SenderMailbox   = "user001@chat.e-postinc.jp"
 $ReceiverMailbox = "leehokang@gmail.com"
 $GraphSenderUser = "me"
-$GraphReceiverUser = "me"
+$GraphReceiverUser = "leehokang@e-postinc.jp"
 $GraphScopes     = "https://graph.microsoft.com/Mail.Send https://graph.microsoft.com/Mail.Read offline_access"
 $SendMethod      = "Smtp"
 $SmtpHost        = "219.163.190.214"

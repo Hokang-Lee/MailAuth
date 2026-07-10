@@ -27,11 +27,15 @@ Microsoft 365 の Graph API に接続し、テストメール送信、受信確�
 .\04-Run-All.ps1
 ```
 
+`04-Run-All.ps1` はMicrosoft 365 / Graphの接続、送信、受信確認を検証するためのスクリプトです。Graphで内部送信する場合、`Authentication-Results` が付かないことがあるため、DMARC判定そのものはGmail側のテストで確認します。
+
 M365からGmailへ送り、Gmail側で確認する場合:
 
 ```powershell
 .\09-Run-M365-To-Gmail-DMARC.ps1
 ```
+
+`09-Run-M365-To-Gmail-DMARC.ps1` もGraph送信を明示して実行し、受信確認だけをGmail APIで行います。
 
 ## 2. SMTP AUTH送信 + Gmail DMARC確認テスト
 

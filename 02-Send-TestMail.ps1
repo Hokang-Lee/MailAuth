@@ -2,9 +2,36 @@
 # Send Test Mail
 # ====================================
 
+param(
+    [string]$Method,
+    [string]$Sender,
+    [string]$Receiver,
+    [string]$GraphSender
+)
+
 $ErrorActionPreference = "Stop"
 
 . .\Config.ps1
+
+if ($Method)
+{
+    $SendMethod = $Method
+}
+
+if ($Sender)
+{
+    $SenderMailbox = $Sender
+}
+
+if ($Receiver)
+{
+    $ReceiverMailbox = $Receiver
+}
+
+if ($GraphSender)
+{
+    $GraphSenderUser = $GraphSender
+}
 
 $Subject = "$TestSubject $(Get-Date -Format 'yyyyMMdd-HHmmss')"
 

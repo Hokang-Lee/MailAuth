@@ -2,9 +2,24 @@
 # DMARC Check
 # ====================================
 
+param(
+    [string]$Receiver,
+    [string]$GraphReceiver
+)
+
 $ErrorActionPreference = "Stop"
 
 . .\Config.ps1
+
+if ($Receiver)
+{
+    $ReceiverMailbox = $Receiver
+}
+
+if ($GraphReceiver)
+{
+    $GraphReceiverUser = $GraphReceiver
+}
 
 if (!(Test-Path -LiteralPath $GraphTokenFile))
 {

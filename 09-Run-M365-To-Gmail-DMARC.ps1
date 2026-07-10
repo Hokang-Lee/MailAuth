@@ -6,7 +6,11 @@
 
 .\01-Connect-M365.ps1
 
-.\02-Send-TestMail.ps1
+.\02-Send-TestMail.ps1 `
+    -Method "Graph" `
+    -Sender $M365SenderMailbox `
+    -Receiver $GmailReceiverMailbox `
+    -GraphSender $GraphSenderUser
 
 .\05-Connect-Gmail.ps1
 
