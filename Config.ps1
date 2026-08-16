@@ -57,6 +57,9 @@ $GmailTokenFile = ".\Result\gmail_token.json"
 $GmailScopes = "https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/gmail.readonly"
 $GmailRedirectPort = 8765
 
+$YahooReceiverMailbox = "leehokang77@yahoo.co.jp"
+$YahooHeaderFile = ".\Result\Yahoo_Last_Header.txt"
+
 $TestSubject      = "DMARC TEST"
 
 $ResultFolder     = ".\Result"

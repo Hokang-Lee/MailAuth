@@ -6,6 +6,7 @@ Microsoft 365 / Graph と Gmail API を使ったメール認証テスト用ス�
 
 1. Microsoft 365 / Graph 認証テスト
 2. SMTP AUTH送信 + Gmail DMARC確認テスト
+3. SMTP AUTH送信 + Yahoo DMARC確認テスト
 
 ## 1. Microsoft 365 / Graph 認証テスト
 
@@ -63,6 +64,34 @@ M365からGmailへ送り、Gmail側で確認する場合:
 05-Connect-Gmail.ps1             Gmail OAuth接続
 07-Check-Gmail-DMARC.ps1         Gmail raw messageから認証結果取得
 10-Run-SMTP-To-Gmail-DMARC.ps1   SMTP AUTH送信 + Gmail認証結果取得
+```
+
+## 3. SMTP AUTH送信 + Yahoo DMARC確認テスト
+
+Yahoo Mail宛にSMTP AUTHで送信し、Yahooの詳細ヘッダーを解析して `SPF` / `DKIM` / `DMARC` をCSVに記録します。
+
+送信:
+
+```powershell
+.\11-Run-SMTP-To-Yahoo-DMARC.ps1
+```
+
+Yahoo Mailで受信メールの詳細ヘッダーをコピーし、既定では以下に保存します。
+
+```text
+Result\Yahoo_Last_Header.txt
+```
+
+解析:
+
+```powershell
+.\12-Check-Yahoo-DMARC.ps1
+```
+
+別ファイルを解析する場合:
+
+```powershell
+.\12-Check-Yahoo-DMARC.ps1 -HeaderFile .\Result\Yahoo_Header_20260816.txt
 ```
 
 ## 成功確認済みの結果
