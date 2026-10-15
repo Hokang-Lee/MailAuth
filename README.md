@@ -111,6 +111,10 @@ DMARC : PASS
 
 SPFはsoftfailですが、`d=chat.e-postinc.jp` のDKIMがPASSし、Fromドメインと整合しているためDMARCはPASSしています。
 
+## MLの再現テスト
+
+`13-Run-ML-DMARC-Repro.ps1` で送信元の整合性と署名後の件名・本文変更を比較します。手順と判定上の注意は [ML-Repro.md](ML-Repro.md) を参照してください。既定では送信せず、テストEMLを生成します。
+
 ## 設定
 
 基本設定は `Config.ps1` です。
